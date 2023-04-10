@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>Users Table</h1>
+{% if data %}
+<table id="customers">
+  <tr>
+    <th>fullname</th>
+    <th>email</th>
+    <th>phone</th>
+    <th>date</th>
+    <th>password</th>
+    <th>status_paid</th>
+    <th>course</th>
+    <th>token_user</th>
+  </tr>
+  {% for user in data %}
+    <tr>
+    <td>{{ user.fullname }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phone }}</td>
+    <td>{{ user.date }}</td>
+    <td>{{ user.password }}</td>
+    <td>{{ user.status_paid }}</td>
+    <td>{{ user.course }}</td>
+    <td>{{ user.token_user }}</td>
+  </tr>
+{% endfor %}
+
+</table>
+{% endif %}
+</body>
+</html>
+
+
